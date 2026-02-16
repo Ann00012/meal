@@ -1,0 +1,30 @@
+/* Контейнер для всього списку */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0;
+    list-style: none; /* прибираємо крапки списку */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стиль для кожної окремої картки */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    width: 220px; /* фіксована ширина картки */
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* ефект при наведенні */
+}
+
+.img {
+    border-radius: 4px;
+    object-fit: cover;
+}
