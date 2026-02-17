@@ -10,7 +10,6 @@ export default function MealList({ data }: MealListProps) {
     <div className={css.wrapper}>
       {data?.length === 0 && <p>There are no meals</p>}
       
-      {/* Клас тепер на самому списку */}
       <ul className={css.container}>
         {data?.map((item: Meal) => (
           <li key={item.idMeal} className={css.card}>
