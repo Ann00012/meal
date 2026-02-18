@@ -8,7 +8,7 @@ interface MealListProps {
 export default function MealList({ data }: MealListProps) {
   return (
     <div className={css.wrapper}>
-      {data?.length === 0 && <p>There are no meals</p>}
+      {data?.length === 0 && <p className={css.notFindItems }>There are no meals</p>}
       
       <ul className={css.container}>
         {data?.map((item: Meal) => (

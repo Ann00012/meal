@@ -1,7 +1,5 @@
-.item{
-  padding: 20px;
-}
-main{
-margin: 0 auto;
-flex:1
+.loaderWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

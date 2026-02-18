@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    padding: 0;
+    padding: 12px 0 12px 0;
     list-style: none; 
     max-width: 1200px;
     margin: 0 auto;
@@ -22,9 +22,29 @@
 
 .card:hover {
     transform: scale(1.05); 
+    border-color: #ff9f43;
 }
 
 .img {
     border-radius: 4px;
     object-fit: cover;
+}
+
+.notFindItems {
+  display: flex;
+  flex: 1;
+  align-items: center;   
+  justify-content: center; 
+ 
+  font-size: 32px;       
+  font-weight: 500;
+  color: #737171;          
+  text-align: center;
+  font-family: var(--font-geist-sans); 
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -9,7 +9,8 @@ export default function SearchBox({ value,onSearch }: SearchBoxProps){
       className={ css.name}
       value={value}
       onChange={(e) => onSearch(e.target.value)}
-      placeholder="Write ingredient "
+      placeholder="Write name of the meal..."
+      aria-label='Search query'
     />
   )
 }
