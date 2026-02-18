@@ -11,10 +11,25 @@ import { useDebounce } from "use-debounce";
 
 export default function Home() {
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    const savedQuery = window.localStorage.getItem("saved-query");
+    if (savedQuery) {
+      try {
+        setQuery(JSON.parse(savedQuery));
+      } catch (e) {
+        console.error("Error in localStorage", e);
+      }
+    }
+  }, []);
+  useEffect(() => {
+    localStorage.setItem("saved-query", JSON.stringify(query));
+  }, [query]);
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
-    const [debouncedQuery] = useDebounce(query, 500);
-    
+  const [debouncedQuery] = useDebounce(query, 500);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["meals", debouncedQuery],
     queryFn: () => getByIngredient(debouncedQuery || "a"),
