@@ -2,7 +2,7 @@
 import SearchBox from "@/components/SearchBox/SearchBox";
 import { getByIngredient } from "@/components/services/Api";
 import MealList from "@/components/MealList/MealList";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery,keepPreviousData } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import Pagination from "@/components/Pagination/Pagination";
 import Loader from "./Loader";
@@ -33,6 +33,7 @@ export default function Home() {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["meals", debouncedQuery],
     queryFn: () => getByIngredient(debouncedQuery || "a"),
+    placeholderData: keepPreviousData,
   });
 
   useEffect(() => {

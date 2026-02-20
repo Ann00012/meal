@@ -15,7 +15,7 @@ export default function MealList({ data }: MealListProps) {
       <ul className={css.container}>
         {data?.map((item: Meal) => (
           <li key={item.idMeal} className={css.card}>
-             <Link href={`/meals/${item.idMeal}`} className={css.link}>
+             <Link href={`/meal/${item.idMeal}`} className={css.link}>
             <Image
               src={item.strMealThumb}
               alt={item.strMeal}

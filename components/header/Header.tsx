@@ -22,7 +22,7 @@ export default function Header() {
         </Link>
         <Link
           href="/Meal"
-          className={`${css.link} ${pathname === "/Meal" ? css.active : ""}`}
+          className={`${css.link} ${pathname === "/meal" ? css.active : ""}`}
         >
           Meal
         </Link>
