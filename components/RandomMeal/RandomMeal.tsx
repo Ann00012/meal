@@ -23,6 +23,7 @@ export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
       {click > 0 && data && (
         <div className={css.mealCard}>
           <h3 className={css.mealTitle}>{data.title}</h3>
+          
           {data.image && (
             <img src={data.image} alt={data.title} className={css.image} />
           )}
@@ -73,3 +74,4 @@ export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
     </div>
   );
 }
+

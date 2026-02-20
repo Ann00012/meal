@@ -11,7 +11,8 @@ export default function Random() {
     const { data, isLoading, isError, error } = useQuery({
         queryKey: ['meals', click],
         queryFn: () => getRandomMeal(),
-        enabled: click > 0
+        enabled: click > 0,
+        refetchOnWindowFocus: false
     }
         
     )

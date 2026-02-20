@@ -1,25 +1,150 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
 
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 1.75rem;
+}
 
 .btn {
-    background-color: rgb(237, 190, 127);
-    color: white;
-    width:120px;
-    border: none;
-    padding: 10px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
 }
 
 .btn:hover {
-    background-color: #ff9f43;
-    transform: translateY(-2px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.45);
 }
 
-.btn:active {
+.mealCard {
+  margin-top: 2.5rem;
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
     transform: translateY(0);
+  }
 }
 
+.mealTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #111827;
+}
 
+.image {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.atributes {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge {
+  background-color: #fff7ed;
+  color: #ea580c;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.content h4 {
+  font-size: 1.2rem;
+  margin: 1.25rem 0 0.5rem;
+  color: #1f2937;
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredientItem {
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed #e5e7eb;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.instructions {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  margin-top: 0.5rem;
+}
+
+.links {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.link,
+.videoLink {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.link:hover {
+  background-color: #bae6fd;
+}
+
+.videoLink {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.videoLink:hover {
+  background-color: #fecaca;
+}
