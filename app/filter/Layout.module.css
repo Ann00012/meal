@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background-color:  #f5a962;
+  color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ddd;
+}
+
+.wrapper {
+  width: 100%;
+   background-color: #fffaf3;
+}
+

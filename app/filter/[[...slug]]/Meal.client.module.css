@@ -1,0 +1,46 @@
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.pageWrapper {
+  padding: 1.5rem;
+ 
+
+}
+
+.paginationWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 2.5rem;
+}
+
+
+.fadeIn {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 1rem;
+  }
+  .paginationWrapper {
+    margin: 1.5rem 0 2rem;
+  }
+}
+

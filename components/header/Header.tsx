@@ -40,21 +40,21 @@ export default function Header() {
       <nav className={`${css.nav} ${isOpen ? css.navActive : ""}`}>
         <Link
           href="/filter"
-          className={`${css.link} ${pathname === "/filter" ? css.activeLink : ""}`}
+          className={`${css.link} ${pathname === "/filter" ? css.active : ""}`}
           onClick={closeMenu}
         >
           Filter
         </Link>
         <Link
           href="/Meal"
-          className={`${css.link} ${pathname === "/Meal" ? css.activeLink : ""}`}
+          className={`${css.link} ${pathname === "/Meal" ? css.active : ""}`}
           onClick={closeMenu}
         >
           Meal
         </Link>
         <Link
           href="/Random"
-          className={`${css.link} ${pathname === "/Random" ? css.activeLink : ""}`}
+          className={`${css.link} ${pathname === "/Random" ? css.active : ""}`}
           onClick={closeMenu}
         >
           Random

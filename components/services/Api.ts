@@ -34,3 +34,8 @@ export const getById = async (id:string): Promise<TransformedMeal> => {
 
   return transformMeal(meal);
 }
+
+export const filterMeals = async (c: string): Promise<Meal[]> => { 
+  const response = await axios.get<APIResponse>(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${c}`);
+  return response.data.meals||[];
+}

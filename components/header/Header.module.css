@@ -118,7 +118,3 @@
     .lineOpen .line:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-.activeLink {
-    color: #ff9f43; 
-    font-weight: 600; 
-}
