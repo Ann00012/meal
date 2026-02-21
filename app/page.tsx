@@ -2,7 +2,7 @@
 import SearchBox from "@/components/SearchBox/SearchBox";
 import { getByIngredient } from "@/components/services/Api";
 import MealList from "@/components/MealList/MealList";
-import { useQuery,keepPreviousData } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import Pagination from "@/components/Pagination/Pagination";
 import Loader from "./Loader";
@@ -31,7 +31,7 @@ export default function Home() {
   const itemsPerPage = 8;
   const [debouncedQuery] = useDebounce(query, 500);
 
-  const { data, isLoading, isError, error,refetch } = useQuery({
+  const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["meals", debouncedQuery],
     queryFn: () => getByIngredient(debouncedQuery || "a"),
     placeholderData: keepPreviousData,
@@ -60,7 +60,7 @@ export default function Home() {
           <Loader />
         </div>
       )}
-      {isError && <Error error={ error} reset={refetch} />}
+      {isError && <Error error={error as Error} reset={() => refetch()} />}
       {totalPages > 1 && (
         <Pagination
           totalPages={totalPages}
