@@ -8,6 +8,7 @@ import Pagination from "@/components/Pagination/Pagination";
 import Loader from "./Loader";
 import css from "./page.module.css";
 import { useDebounce } from "use-debounce";
+import Error from "./error";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -30,7 +31,7 @@ export default function Home() {
   const itemsPerPage = 8;
   const [debouncedQuery] = useDebounce(query, 500);
 
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError, error,refetch } = useQuery({
     queryKey: ["meals", debouncedQuery],
     queryFn: () => getByIngredient(debouncedQuery || "a"),
     placeholderData: keepPreviousData,
@@ -59,7 +60,7 @@ export default function Home() {
           <Loader />
         </div>
       )}
-      {isError && <p>Error: {error.message}</p>}
+      {isError && <Error error={ error} reset={refetch} />}
       {totalPages > 1 && (
         <Pagination
           totalPages={totalPages}
