@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL|| "http://localhost:3000"
+  ),
   title: "Meal",
   description: "Meal search site",
   icons:{ 
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Meal",
     description: "Meal search site",
-    url: "",
+    url: "./",
     siteName: "Meal",
      images: [{
       url: '/meal.jpg',

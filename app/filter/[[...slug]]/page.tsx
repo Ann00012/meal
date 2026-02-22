@@ -6,7 +6,6 @@ import {
 import MealClient from "./Meal.client";
 import { filterMeals } from "@/components/services/Api";
 
-
 type Props = {
   params: Promise<{ slug?: string[] }>;
 };
