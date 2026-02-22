@@ -1,5 +1,7 @@
 import css from "./RandomMeal.module.css";
 import { TransformedMeal } from "../types/Type";
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 
 interface RandomMealProps {
   onClick: () => void;
@@ -8,6 +10,26 @@ interface RandomMealProps {
 }
 
 export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
+const handleImageClick = () => {
+  if (!data?.image) return;
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+      <img src="${data.image}" alt="${data.title}">
+    </div>
+  `, {
+    onShow: () => {
+      document.body.style.overflow = 'hidden'; 
+    },
+    onClose: () => {
+      document.body.style.overflow = 'visible';
+    }
+  });
+
+  instance.show();
+};
+
+  
   return (
     <div className={css.container}>
       <h3 className={css.title}>Try a random meal</h3>
@@ -25,7 +47,9 @@ export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
           <h3 className={css.mealTitle}>{data.title}</h3>
           
           {data.image && (
-            <img src={data.image} alt={data.title} className={css.image} />
+            <img src={data.image} alt={data.title} className={css.image}
+            onClick={handleImageClick}
+              style={{ cursor: 'zoom-in' }}/>
           )}
 
           <div className={css.atributes}>

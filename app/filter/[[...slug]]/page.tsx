@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query";
 import MealClient from "./Meal.client";
 import { filterMeals } from "@/components/services/Api";
-import { notFound } from "next/navigation";
+
 
 type Props = {
   params: Promise<{ slug?: string[] }>;
@@ -14,9 +14,6 @@ type Props = {
 const MealByCategory = async ({ params }: Props) => {
   const queryClient = new QueryClient();
   const { slug } = await params;
-  if (!slug) { 
-    notFound();
-  }
   const currentTag = slug && slug.length > 0 ? slug[0] : "Beef";
   await queryClient.prefetchQuery({
     queryKey: ["meal", currentTag],

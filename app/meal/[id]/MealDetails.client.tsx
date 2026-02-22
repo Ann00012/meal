@@ -1,12 +1,31 @@
 'use client'
 import css from './MealDetails.client.module.css';
-
+import * as basicLightbox from 'basiclightbox';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useRouter } from 'next/navigation';
 import { getById } from '@/components/services/Api';
 
 import Loader from '../../Loader';
 export default function MealDetailsClient() {
+  const handleImageClick = () => {
+    if (!data?.image) return;
+  
+    const instance = basicLightbox.create(`
+      <div class="modal">
+        <img src="${data.image}" alt="${data.title}">
+      </div>
+    `, {
+      onShow: () => {
+        document.body.style.overflow = 'hidden'; 
+      },
+      onClose: () => {
+        document.body.style.overflow = 'visible';
+      }
+    });
+  
+    instance.show();
+  };
+  
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
@@ -42,6 +61,8 @@ export default function MealDetailsClient() {
         src={data.image}
         alt={data.title}
         className={css.image}
+        onClick={handleImageClick}
+         style={{ cursor: 'zoom-in' }}
       />
 
       <div className={css.meta}>
