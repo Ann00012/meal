@@ -24,3 +24,22 @@
   font-style: italic;
 }
 
+
+@media (max-width: 768px)  {
+  .name {
+    max-width: 320px;
+    padding: 11px 18px;
+    font-size: 15px;
+    border-radius: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    max-width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+}
+

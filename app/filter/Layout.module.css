@@ -18,4 +18,46 @@
   width: 100%;
    background-color: #fffaf3;
 }
+@media (max-width: 480px) {
+  .mobileToggle {
+    display: block;
+    position: fixed; 
+    top: 10px;
+    left: 10px;
+    z-index: 999; 
+    
+    padding: 8px 16px;
+    background: #ff9f43;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
 
+ 
+  .menuList {
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    width: 80%;   
+    max-width: 300px;
+    height: 100vh;
+    z-index: 1200; 
+    background: white;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+    transition: left 0.3s ease-in-out;
+    padding-top: 60px;
+  }
+
+  .menuList.open {
+    left: 0; 
+  }
+
+  .sidebar{
+    width:0;
+    padding:0;
+  }
+}
