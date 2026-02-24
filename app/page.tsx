@@ -52,6 +52,8 @@ export default function Home() {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const isFirstLoad = !debouncedQuery && !data;
   return (
     <main>
       <SearchBox value={query} onSearch={(val) => setQuery(val)} />
@@ -68,7 +70,7 @@ export default function Home() {
           onChange={handlePageChange}
         />
       )}
-      <MealList data={currentItems || []} />
+      <MealList data={currentItems || []} isFirstLoad={isFirstLoad}/>
     </main>
   );
 }

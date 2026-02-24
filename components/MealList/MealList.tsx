@@ -5,26 +5,36 @@ import Link from "next/link";
 
 interface MealListProps {
   data: Meal[];
+  isFirstLoad?: boolean;
 }
 
-export default function MealList({ data }: MealListProps) {
+export default function MealList({ data,isFirstLoad }: MealListProps) {
   return (
     <div className={css.wrapper}>
-      {data?.length === 0 && <p className={css.notFindItems }>There are no meals</p>}
-      
+      {data?.length === 0 &&
+        (isFirstLoad ? (
+          <p className={css.notFindItems}>
+            Welcome! Search for your favorite ingredient.
+          </p>
+        ) : (
+          <p className={css.notFindItems}>
+            There are no meals for this search.
+          </p>
+        ))}
+
       <ul className={css.container}>
         {data?.map((item: Meal) => (
           <li key={item.idMeal} className={css.card}>
-             <Link href={`/meal/${item.idMeal}`} className={css.link}>
-            <Image
-              src={item.strMealThumb}
-              alt={item.strMeal}
-              width={200}
-              height={200}
-              className={css.img}
-            />
+            <Link href={`/meal/${item.idMeal}`} className={css.link}>
+              <Image
+                src={item.strMealThumb}
+                alt={item.strMeal}
+                width={200}
+                height={200}
+                className={css.img}
+              />
               <p>{item.strMeal}</p>
-              </Link>
+            </Link>
           </li>
         ))}
       </ul>
