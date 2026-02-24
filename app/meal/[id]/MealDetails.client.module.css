@@ -61,7 +61,7 @@
 
 .image {
   flex: 1;
-  height: 420px;
+  height: 320px;
   object-fit: cover;
   border-radius: 1.5rem;
 }

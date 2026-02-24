@@ -31,6 +31,7 @@ export default function Header() {
       <button 
         className={`${css.burger} ${isOpen ? css.lineOpen : ""}`} 
         onClick={toggleMenu}
+        aria-label="menu"
       >
         <span className={css.line}></span>
         <span className={css.line}></span>

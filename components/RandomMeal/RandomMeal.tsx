@@ -1,7 +1,8 @@
 import css from "./RandomMeal.module.css";
 import { TransformedMeal } from "../types/Type";
-import * as basicLightbox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
+import * as basicLightbox from "basiclightbox";
+import "basiclightbox/dist/basicLightbox.min.css";
+import Image from "next/image";
 
 interface RandomMealProps {
   onClick: () => void;
@@ -10,26 +11,28 @@ interface RandomMealProps {
 }
 
 export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
-const handleImageClick = () => {
-  if (!data?.image) return;
+  const handleImageClick = () => {
+    if (!data?.image) return;
 
-  const instance = basicLightbox.create(`
+    const instance = basicLightbox.create(
+      `
     <div class="modal">
       <img src="${data.image}" alt="${data.title}">
     </div>
-  `, {
-    onShow: () => {
-      document.body.style.overflow = 'hidden'; 
-    },
-    onClose: () => {
-      document.body.style.overflow = 'visible';
-    }
-  });
+  `,
+      {
+        onShow: () => {
+          document.body.style.overflow = "hidden";
+        },
+        onClose: () => {
+          document.body.style.overflow = "visible";
+        },
+      },
+    );
 
-  instance.show();
-};
+    instance.show();
+  };
 
-  
   return (
     <div className={css.container}>
       <h3 className={css.title}>Try a random meal</h3>
@@ -45,11 +48,17 @@ const handleImageClick = () => {
       {click > 0 && data && (
         <div className={css.mealCard}>
           <h3 className={css.mealTitle}>{data.title}</h3>
-          
+
           {data.image && (
-            <img src={data.image} alt={data.title} className={css.image}
-            onClick={handleImageClick}
-              style={{ cursor: 'zoom-in' }}/>
+            <Image
+              src={data.image}
+              alt={data.title}
+              className={css.image}
+              width={300}
+              height={300}
+              onClick={handleImageClick}
+              style={{ cursor: "zoom-in" }}
+            />
           )}
 
           <div className={css.atributes}>
@@ -98,4 +107,3 @@ const handleImageClick = () => {
     </div>
   );
 }
-

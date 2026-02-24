@@ -1,46 +1,46 @@
-'use client'
-import css from './MealDetails.client.module.css';
-import * as basicLightbox from 'basiclightbox';
-import { useQuery } from '@tanstack/react-query';
-import { useParams, useRouter } from 'next/navigation';
-import { getById } from '@/components/services/Api';
+"use client";
+import css from "./MealDetails.client.module.css";
+import * as basicLightbox from "basiclightbox";
+import { useQuery } from "@tanstack/react-query";
+import { useParams, useRouter } from "next/navigation";
+import { getById } from "@/components/services/Api";
+import Image from "next/image";
+import Loader from "../../Loader";
 
-import Loader from '../../Loader';
 export default function MealDetailsClient() {
   const handleImageClick = () => {
     if (!data?.image) return;
-  
-    const instance = basicLightbox.create(`
+
+    const instance = basicLightbox.create(
+      `
       <div class="modal">
         <img src="${data.image}" alt="${data.title}">
       </div>
-    `, {
-      onShow: () => {
-        document.body.style.overflow = 'hidden'; 
+    `,
+      {
+        onShow: () => {
+          document.body.style.overflow = "hidden";
+        },
+        onClose: () => {
+          document.body.style.overflow = "visible";
+        },
       },
-      onClose: () => {
-        document.body.style.overflow = 'visible';
-      }
-    });
-  
+    );
+
     instance.show();
   };
-  
+
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
-  const {
-    data,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ['meal', id],
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["meal", id],
     queryFn: () => getById(id),
     refetchOnMount: false,
   });
-  
+
   const handleGoBack = () => {
-    const isSure = confirm('Are you sure?');
+    const isSure = confirm("Are you sure?");
     if (isSure) {
       router.back();
     }
@@ -57,12 +57,14 @@ export default function MealDetailsClient() {
 
       <h1 className={css.title}>{data.title}</h1>
 
-      <img
+      <Image
         src={data.image}
         alt={data.title}
         className={css.image}
         onClick={handleImageClick}
-         style={{ cursor: 'zoom-in' }}
+        style={{ cursor: "zoom-in" }}
+        width={300}
+        height={300}
       />
 
       <div className={css.meta}>
