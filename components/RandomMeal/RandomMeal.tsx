@@ -16,7 +16,7 @@ export default function RandomMeal({ onClick, click, data }: RandomMealProps) {
 
     const instance = basicLightbox.create(
       `
-    <div class="modal">
+    <div class='${css.modal}'>
       <img src="${data.image}" alt="${data.title}">
     </div>
   `,

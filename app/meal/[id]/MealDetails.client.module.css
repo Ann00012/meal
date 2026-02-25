@@ -262,3 +262,18 @@
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 600px) {
+  .modal img {
+    max-width: 90vw; 
+  }
+  .modal{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px; 
+  box-sizing: border-box;
+  width: 100vw;
+  max-height: 90vh;
+  }
+}
