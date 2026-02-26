@@ -1,6 +1,7 @@
 "use client";
 import css from "./MealDetails.client.module.css";
 import * as basicLightbox from "basiclightbox";
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import { getById } from "@/components/services/Api";

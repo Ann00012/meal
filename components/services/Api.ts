@@ -2,9 +2,11 @@ import { Meal } from "../types/Type";
 import { TransformedMeal } from "../types/Type";
 import axios from 'axios';
 import { transformMeal } from "../types/Type";
+
 interface APIResponse {
   meals: Meal[] | null;
 }
+
 export const getByIngredient =async (query:string) :Promise<Meal[]>=> { 
    const response = await axios.get<APIResponse>(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
