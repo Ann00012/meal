@@ -47,8 +47,8 @@ export default function Header() {
           Filter
         </Link>
         <Link
-          href="/Meal"
-          className={`${css.link} ${pathname === "/Meal" ? css.active : ""}`}
+          href="/Favorite"
+          className={`${css.link} ${pathname === "/Favorite" ? css.active : ""}`}
           onClick={closeMenu}
         >
           Meal
