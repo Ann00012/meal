@@ -51,7 +51,7 @@ export default function Header() {
           className={`${css.link} ${pathname === "/Favorite" ? css.active : ""}`}
           onClick={closeMenu}
         >
-          Meal
+          Favorites
         </Link>
         <Link
           href="/Random"
