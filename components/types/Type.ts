@@ -55,3 +55,9 @@ export const transformMeal = (meal: Meal): TransformedMeal => {
     ingredients
   };
 };
+
+export interface ShoppingItem {
+  id: string;
+  name: string;
+  isDone: boolean;
+}
